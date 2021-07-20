@@ -1,0 +1,20 @@
+[
+    {
+        "id":1,
+        "name":"Sector público",
+        "state":true,
+        "description":"Descripción sector público"
+    },
+    {
+        "id":2,
+        "name":"Sector interno",
+        "state":true,
+        "description":"Descripción sector interno"
+    },
+    {
+        "id":3,
+        "name":"Sector privado",
+        "state":true,
+        "description":"Descripción sector privado"
+    }
+]

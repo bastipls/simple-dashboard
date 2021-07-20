@@ -1,0 +1,23 @@
+.maintainers__tab-container{
+    display:flex;
+    justify-content:center;
+    flex-wrap: wrap;
+    width:100%;
+    margin-bottom: 10px;
+    align-items:baseline;
+    box-sizing: border-box;
+}
+
+.maintainers__buttons-container{
+    display: flex;
+    justify-content:center;
+    align-items:center;
+    margin-top: 10px;
+    width: 100%;
+    display: flex;
+    justify-content:center;
+    padding:15px 50px 15px 50px;
+    .maintainers__btn{
+        width:50%;
+    }
+}

@@ -1,0 +1,112 @@
+.navbar{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background: var(--primary-color);
+    color:whitesmoke;
+    position:fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 101;
+    box-shadow:rgba(0, 0, 0, 0.12) 0px 1px 4px 1px;
+    -webkit-box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 4px 1px;
+    -moz-box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 4px 1px;
+}
+.navbar__nav{
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    padding-left: 0;
+    margin-bottom: 0;
+    margin-top: 0;
+    svg{
+       margin-left: 20px;
+       font-size: 1.4rem; 
+       color: whitesmoke;
+    }
+}
+.navbar__nav-link{
+    float: left;
+    text-align: center;
+    padding: 21px 10px;
+    text-decoration: none;
+    font-size: 17px;
+    color:var(--main-color);
+    position: relative;
+    &:hover{
+        cursor: pointer;
+    }
+
+}
+
+.navbar__nav-right{
+    margin-left: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    svg::selection{
+        background: none;
+    }
+    .navbar__username{
+        color:whitesmoke
+    }
+}
+.navbar__search{
+    position: relative;
+    margin: auto;
+    width: 50%;
+    input{
+        background: var(--second-bg-color);
+        border: none;
+        padding: 12px 50px 12px 50px;
+        width: 100%;
+        outline: none;
+        color:var(--main-color);
+        border-radius: 20px;
+    }
+    svg{
+        position: absolute;
+        top: 30%;
+        right: 15px;
+        transform: translate(-50%);
+        color:var(--main-color);
+        cursor: pointer;
+    }
+}
+
+.navbar__logo{
+    width: 150px;
+    height: 65x;
+    padding: 13px 10px 10px 10px;
+    margin-left: 15px;
+    // padding-left: 20px;
+    
+    &::selection{
+        background: none;
+    }
+}
+.navbar__dropdown-toggle{
+    cursor: pointer;
+}
+.navbar__avatar{
+    padding: 11px;
+    img{
+        width: 39px;
+        height: 39px;
+        border-radius: 50%;
+    }
+}
+
+
+
+@media only screen and (max-width: 600px) {
+
+
+	.navbar__search {
+		display: none;
+	}
+
+    
+}

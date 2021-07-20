@@ -1,0 +1,109 @@
+// Configuraciones generales de css\
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+
+body{
+    
+    font-family: 'Roboto',sans-serif;
+    background: var(--main-bg-color);
+    color:var(--main-color);
+}
+.base__linear-progress{
+    z-index: 1000;
+    width: 100%;
+    position: absolute !important;
+
+}
+.base__overlay-scrollbar{
+    position:relative;
+}
+.text-main{
+	color:var(--main-color) !important;
+}
+//  scroll
+.base__overlay-scrollbar::-webkit-scrollbar{
+    width: 9px;
+    height: 9px;
+ 
+}
+
+.base__overlay-scrollbar::-webkit-scrollbar-thumb{
+    background-color: rgba(0,0,0,0.4);
+    border-radius: 10rem;
+    border: 1px solid var(--main-bg-color);
+}
+.base__overlay-scrollbar::-webkit-scrollbar-track-piece:start {
+	background: transparent;
+}
+
+.base__overlay-scrollbar::-webkit-scrollbar-track-piece:end {
+	background: transparent;
+}
+// Fin scroll
+.base__scroll{
+	&::-webkit-scrollbar{
+		width: 9px;
+		height: 9px;
+		background-color: var(--second-bg-color);
+	  }
+	  &::-webkit-scrollbar-thumb{
+		background-color: var(--main-color);
+		border-radius: 10rem;
+		border: 1px solid var(--main-bg-color);
+	  }
+}
+
+// Grid
+.row{
+    
+    color:var(--main-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-direction: row;
+
+	;
+    &::after, &::before{
+        box-sizing: border-box;
+    }
+}
+.base__card{
+    background:var(--main-bg-color);
+    box-shadow:rgba(0, 0, 0, 0.12) 0px 1px 4px 1px;
+    -webkit-box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 4px 1px;
+    -moz-box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 4px 1px;
+}
+.base__no-select{
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
+    
+}
+// Aplico estilo a todas las claes que comienzen con col
+[class*="col-"]{
+	padding: 0px;
+
+
+}
+
+.my_btn{
+
+    margin-top: 10px;
+    background:var(--apiux-color) !important ;
+    color:var(--light-color) !important;
+    margin: 10px !important;
+    &:hover{
+        background:var(--secondary-color) !important;
+    }
+  
+    
+}

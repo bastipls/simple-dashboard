@@ -1,0 +1,19 @@
+{
+    "jobs_this_week": 3,
+    "jobs_last_week": 6,
+    "all_jobs": 10,
+    "jobs_per_sector": [
+        {
+            "name": "Sector privado",
+            "value": 3
+        },
+        {
+            "name": "Sector publico",
+            "value": 4
+        },
+        {
+            "name": "Sector interno",
+            "value": 3
+        }
+    ]
+}

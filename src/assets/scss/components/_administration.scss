@@ -1,0 +1,27 @@
+.administration__container{
+    width:100%;
+}
+
+.administration__container-detail-user{
+    width:100%;
+    min-height:10vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding:10px;
+    position: relative;
+    margin-bottom: 20px;
+    .administration__title{
+        position: absolute;
+        top:5px;
+        left:5px;
+    }
+}
+.administration__input-item{
+    // width: 400px;
+    margin-bottom: 20px;
+    @media screen and(max-width:550px) {
+       margin-top: 20px;
+    }
+}

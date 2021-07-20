@@ -1,0 +1,120 @@
+.sidebar{
+    width: 82px;
+    height: 100vh;
+    position: fixed;
+    margin-top: 65px;
+    background: var(--main-bg-color);
+    box-shadow: rgba(0,0,0,0.12) 0px 1px 4px 1px;
+    overflow: hidden;
+    z-index: 100;
+    transition: width .5s;
+    &:hover{
+        width: 250px;
+    }
+    
+}
+.sidebar__nav{
+    list-style: none;
+    padding: 0;
+    margin:0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    cursor: pointer;
+    // Mis estilos para SubMenu
+    ul {
+        overflow: hidden;
+        
+        a{        
+            background: #dce8f3; 
+        }
+        svg{
+            margin-left: 10px;
+            font-size: 1rem;
+        }
+    
+    }
+   
+}
+.sidebar__nav-item{
+    width: 100%;
+
+}
+.sidebar__nav-link{
+    display: flex;
+    align-items: center;
+    color:var(--main-color);
+    text-decoration: none;
+    white-space: nowrap;
+    transition:all .5s ease-in-out;
+    font-size:.8rem;
+    &:hover{
+        background: var(--second-bg-color);
+        border-top-right-radius: 20px;
+        border-bottom-right-radius: 20px;
+    }
+
+    &:hover svg{
+
+        transform: translate(-50%, -75%);
+        transition:transform 1s ease-in-out;
+    }
+    svg{
+        transition: transform 1s ease-in-out;
+        font-size: 1.5rem;
+        color:var(--second-color);
+        position: absolute;
+        left: 50%;
+        top:50%;
+        // Centrar
+        transform: translate(-50%, -50%);
+
+
+    }
+    div{
+       
+        min-width: 82px;
+        height: 40px;
+        position: relative;
+    }
+  
+}
+.sidebar__icon-dropdown{
+    margin-left: auto;
+    svg{
+        font-size: .8rem;
+    }
+}
+.sidebar__expand{
+    .sidebar{
+        width: 250px;
+    }
+    .wrapper{
+        margin-left: 250px;
+    }
+}
+
+
+.active{
+   
+    background:var(--second-bg-color);
+    color:var(--main-color); 
+ 
+    div{
+        border-left:8px solid var(--primary-color);
+    }
+    svg{
+        color:var(--primary-color);
+        margin-left: -5px;
+    }
+}
+
+
+@media only screen and (max-width: 600px) {
+	.sidebar {
+		width: 0;
+	}
+
+    
+}

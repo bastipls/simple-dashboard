@@ -1,0 +1,32 @@
+
+.wrapper{
+    padding: 10px;
+    overflow-x: hidden;
+    margin-left: 82px;
+    padding-top: 80px;
+    height: 100vh;
+    background: var(--second-bg-color);
+    transition: margin-left .5s;
+    &::-webkit-scrollbar{
+		width: 9px;
+		height: 9px;
+		background-color: var(--second-bg-color);
+	  }
+	  &::-webkit-scrollbar-thumb{
+		background-color: var(--main-color);
+		border-radius: 10rem;
+		border: 1px solid var(--main-bg-color);
+	  }
+}
+
+
+@media only screen and (max-width: 600px) {
+
+    .wrapper {
+        margin-left: 0;
+    }
+    .sidebar__expand .wrapper {
+        margin-left: 0;
+    }
+
+}

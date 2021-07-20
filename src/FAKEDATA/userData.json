@@ -1,0 +1,19 @@
+{
+    "id":1,
+    "username":"admin",
+    "email":"admin@gmail.com",
+    "first_name":"Bastian",
+    "last_name":"Pérez",
+    "groups":[
+        {
+            "id":1,
+            "name":"admin",
+            "permissions":[]
+        },
+        {
+            "id":2,
+            "name":"admin",
+            "permissions":[]
+        }
+    ]
+}

@@ -1,0 +1,66 @@
+
+.job__container{
+    background: var(--main-bg-color);
+    width: 100%;
+    display:flex;
+    flex-wrap: wrap;
+    padding: 0px 0px 20px 0px;
+    margin-bottom:10px;
+
+    
+    &:last-child{
+        
+        justify-content: center;
+    }
+    .job__btn-form{
+        margin-top:10px;
+    }
+
+    
+}
+
+.job__container-title{
+    width:100%;
+    padding: 5px 0px 10px 5px;
+    font-size: 13px;
+    color:rgba(128, 128, 128, 0.5);
+}
+.job__input-item{
+    display: flex;
+    justify-content:center;
+    align-items:center;
+    position:relative;
+    width: 50%;
+    display: flex;
+    justify-content:space-between;
+    padding:5px 50px 5px 50px;
+    #job__refresh-hubspot{
+        cursor:pointer;
+        position: absolute;
+        right: 20px;
+        margin-left: 10px;
+    }
+    #job__refresh-loading{
+      
+        position: absolute;
+        right: 20px;
+        margin-left: 10px;
+    }
+    @media screen and(max-width:800px){
+        width: 100%;
+    }
+}
+.job__chips-container{
+    display: flex;
+    flex-wrap: wrap;
+
+    .jon__chips{
+        max-width: 230px;;
+        height:20px;
+        margin: 2px;
+    }
+
+}
+.job__multiselect{
+    max-width: 50% !important;
+}

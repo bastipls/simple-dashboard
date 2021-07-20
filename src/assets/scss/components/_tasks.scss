@@ -1,0 +1,33 @@
+.tasks__container-form{
+    width: 100%;
+}
+.tasks__container{
+    position: relative;
+    background: var(--main-bg-color);
+    width: 100%;
+    display:flex;
+    flex-wrap: wrap;
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    .tasks__item-input{
+        width: 33%;
+        padding: 10px;
+        
+    }
+    .tasks__item-input-description{
+        width: 100%;
+        padding: 10px;
+    }
+}
+.tasks__container-inputs{
+    min-height: 60vh;
+    margin-bottom: 10px;
+}
+.tasks__container-btns{
+    min-height: 20vh;  
+    .tasks__item-btn{
+        width: 50%;
+    }
+}

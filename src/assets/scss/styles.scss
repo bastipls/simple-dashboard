@@ -1,0 +1,16 @@
+// ARCHIVO DE IMPORTACIONES DE SCSS
+// BASE
+@import './base/settings';
+@import './base/base';
+// COMPONENTS
+@import './components/navbar';
+@import './components/sidebar';
+@import './components/wrapper';
+@import './components/login';
+@import './components/job';
+@import './components/profile';
+@import './components/tasks';
+@import './components/dashboard';
+@import './components/maintainers';
+@import './components/administration';
+@import './components/search-task';
