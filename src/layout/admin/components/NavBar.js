@@ -1,5 +1,5 @@
 import React, {  useState } from 'react'
-import { faBars, faSignOutAlt, faUserTie } from '@fortawesome/free-solid-svg-icons'
+import { faBars, faExclamationTriangle, faSignOutAlt, faUserTie } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Link } from 'react-router-dom'
 
@@ -8,7 +8,7 @@ import avatarImg from '../../../assets/img/avatar.jpeg';
 import { useDispatch, useSelector } from 'react-redux';
 import {   showSidebar } from '../../../actions/ui';
 import { startLogout } from '../../../actions/auth';
-import { ListItemIcon, Menu, MenuItem } from '@material-ui/core';
+import { Badge, ListItemIcon, Menu, MenuItem } from '@material-ui/core';
 export const NavBar = ({user}) => {
     const dispatch = useDispatch();
     const { visibilitySideBar } = useSelector( state => state.ui );
@@ -28,8 +28,13 @@ export const NavBar = ({user}) => {
         dispatch(startLogout())
     }
 
-    
-
+    const [bag, setBag] = useState(null)
+    const handleBagError = (e) =>{
+        setAnchorEl(e.currentTarget);
+    }
+    const handleCloseBagError = () =>{
+        setBag(null)
+    }
     return (
         // Navbar
         <div className="navbar">
@@ -45,7 +50,44 @@ export const NavBar = ({user}) => {
                        
                     </Link>
                 </li>
+                <li className="navbar__nav-item">
+                   
+                
+                </li>
+                
+               
             </ul>
+            <ul className="navbar__nav">
+            {/* TODO:Terminar de hacer esto */}
+                <span  onClick={handleBagError}> 
+                                <Menu
+                                    
+                                    anchorEl={null}
+                                    keepMounted
+                                    open={Boolean(bag)}
+                                    onClose={handleCloseBagError}
+                                    getContentAnchorEl={null}
+                                    
+                                    anchorOrigin={{
+                                        vertical: 'right',
+                                        horizontal: 'left',
+                                    }}
+                                    
+                                    transformOrigin={{
+                                    vertical: 'right',
+                                    horizontal: 'right',
+                                    }}
+                                >
+                                    <MenuItem>hola</MenuItem>
+                                    <MenuItem>hola</MenuItem>
+                                </Menu>
+                                <Badge  badgeContent={4} color="primary">
+                                    <FontAwesomeIcon icon={faExclamationTriangle} />
+                                </Badge>
+                    </span>
+            </ul>
+                     
+
             {/* <form className="navbar__search">
                 <input type="" />
                 <FontAwesomeIcon  icon={faSearch}  />
@@ -58,7 +100,7 @@ export const NavBar = ({user}) => {
                 {/* EndDropDown */}
                 {/* Avatar */}
                 <li className="navbar__nav-item navbar__avt-wrapper" >
-                    <div className="navbar__avatar navbar__dropdown">
+                    <div className="navbar__avatar ">
 
                         <img src={avt} className="navbar__dropdown-toggle"  aria-controls="simple-menu" onClick={handleClcik}  alt="imagen de perfil"/>
                         <Menu

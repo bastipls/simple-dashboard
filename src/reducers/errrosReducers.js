@@ -4,7 +4,7 @@ const initialState = {
     errors:[]
 }
 
-export const errorsReducer = () =>{
+export const errorsReducer = (state = initialState,action) =>{
 
     switch (action.type) {
         case types.errorAdd:
@@ -20,6 +20,6 @@ export const errorsReducer = () =>{
                     )
             }
         default:
-            break;
+            return state;
     }
 }
