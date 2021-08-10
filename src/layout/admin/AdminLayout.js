@@ -9,6 +9,7 @@ import { RoutesView } from '../../routers/RoutesView';
 import { LinearProgress } from '@material-ui/core';
 import { startLoadTasks } from '../../actions/tasks';
 import { startLoadAllMaintainers } from '../../actions/maintainers';
+import Swal from 'sweetalert2';
 
 export const AdminLayout = () => {
 
@@ -19,10 +20,10 @@ export const AdminLayout = () => {
         
         dispatch(startLoadTasks())
         dispatch(startLoadAllMaintainers())
-
+        Swal.fire("Info","La informacion de este sitio es solo de muestra, no se agrega informacion tiempo real, es utilizada solo para una muestra basica del funcionamiento y diseño","info")
     
     }, [dispatch])
-
+    
    
 
     return (

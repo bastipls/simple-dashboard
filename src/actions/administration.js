@@ -1,16 +1,15 @@
 import Swal from "sweetalert2";
 import { types } from "../constants/types";
-import useFetch from "../hooks/useFetch";
-import { finishLoading, startLoading } from "./ui";
+import useFetch, { useFetchAny } from "../hooks/useFetch";
+
 
 // INICIO SECCION USUARIOS
-export const startLoadUsers = () => {
+export const startLoadUsers = (page) => {
     return async(dispatch) => {
         try {
             dispatch(stratLoadingAdministration())
-            const resp = await useFetch(`users/`,{},'GET',true)
+            const resp = await useFetchAny(`https://reqres.in/api/users?page=${page}`,{},'GET',true)
             const body = await resp.json();
-            console.log()
             if(resp.ok){
                 dispatch(administrationUsersLoad(body))
                 dispatch(finishLoadingAdministration())
@@ -24,31 +23,7 @@ export const startLoadUsers = () => {
         }
     }
 }
-export const startUpdateUserGroup = (id,groups) =>{
-    return async(dispatch) =>{
-        try {
-      
-            dispatch(startLoading())
-            const resp = await useFetch(`users/${id}`,groups,'PATCH',true)
-            const body = await resp.json()
-            
-            if(resp.ok){
-                dispatch(administrationUserUpdateGroup(id,body))
-                dispatch(finishLoading())
-                Swal.fire('Exito!','Grupos actulizados','success')
-            
-            }else{
-                console.log(body)
-                dispatch(finishLoading())
-                Swal.fire('Error','Algo salió mal','error')
-            }
-        } catch (error) {
-            dispatch(finishLoading())
-            Swal.fire('Error','Algo salió mal','error')
-            console.log(error)
-        }
-    }
-}
+
 export const startLoadUserActive = (id) =>{
     return async(dispatch) => {
         try {
@@ -71,13 +46,14 @@ export const startLoadUserActive = (id) =>{
 }
 // FIN SECCION USUARIOS
 // INICIO SECCION GRUPOS
-export const startAddGroup = (group) => {
+export const startAddUser = (user) => {
     return async(dispatch) =>{
         try {
-            const resp = await useFetch('groups/',group,'POST',true)
+            const resp = await useFetchAny(`https://reqres.in/api/users`,user,'POST')
             const body = await resp.json()
             if(resp.ok){
-                dispatch(administrationGroupAdd(body))
+                dispatch(administrationUserAdd(body))
+                Swal.fire("Exito","Usuario creado! <br>El usuario no se verá reflejado debido a que se usan APIs gratuitas",'success')
             }
         } catch (error) {
             console.log(error)
@@ -85,15 +61,15 @@ export const startAddGroup = (group) => {
         }
     }
 }
-export const startUpdateGroup = (id,group) =>{
+export const startUpdateUser = (id,user) =>{
     return async(dispatch) =>{
         try {
       
             dispatch(stratLoadingAdministration())
-            const resp = await useFetch(`groups/${id}`,group,'PUT',true)
+            const resp = await useFetch(`groups/${id}`,user,'PUT',true)
             const body = await resp.json()
             if(resp.ok){
-                dispatch(administrationGroupUpdate(id,body))
+                dispatch(administrationUserUpdate(id,body))
                 dispatch(finishLoadingAdministration())
             }else{
                 console.log(body)
@@ -108,35 +84,15 @@ export const startUpdateGroup = (id,group) =>{
     }
 }
 
-export const startLoadGroups = () => {
-    return async(dispatch) => {
-        try {
-            dispatch(stratLoadingAdministration())
-            const resp = await useFetch(`groups/`,{},'GET',true)
-            const body = await resp.json();
 
-            if(resp.ok){
-                dispatch(administrationGroupsLoad(body))
-                dispatch(finishLoadingAdministration())
-            }else{
-                console.log(body)
-                dispatch(finishLoadingAdministration())
-            }
-        } catch (error) {
-            console.log(error)
-            dispatch(finishLoadingAdministration())
-        }
-    }
-}
-
-export const startDeleteGroup = (group) =>{
+export const startDeleteUser = (user) =>{
     return async(dispatch) =>{
         try { 
             
             Swal.fire({
                 icon:"warning",
-                title:"¿Quieres eliminar el contrato? ",
-                text:`${group.name}`,
+                title:"¿Quieres eliminar el usuario? ",
+                text:`${user.first_name}`,
                 input:"checkbox",
                 inputValidator: (result) =>{
                     return !result && 'Necesita marcar la casilla'
@@ -151,9 +107,9 @@ export const startDeleteGroup = (group) =>{
              }).then( async (result) =>{
          
                  if(result.isConfirmed){
-                    const resp = await useFetch(`groups/${group.id}`,{},'DELETE',true)
+                    const resp = await useFetchAny(`groups/${user.id}`,{},'DELETE',true)
                     if(resp.ok){
-                        dispatch(administrationGroupDelete(group.id))
+                        dispatch(administrationUserDelete(user.id))
                     
                     }else{
                 
@@ -182,33 +138,27 @@ const administrationSetActiveUser =  (user) => ({
     type:types.administrationSetUserActive,
     payload:{...user}
 })
-const administrationUserUpdateGroup = (id,user) => ({
-    type:types.administrationUpdateUserGroup,
-    payload:{id,user:{id,...user}}
-})
+
 // FIN SECCION USUARIOS
 // SECCION GRUPOS
-const administrationGroupAdd =(group) => ({
-    type:types.administrationAddGroup,
-    payload:group
+const administrationUserAdd =(user) => ({
+    type:types.administrationAddUser,
+    payload:user
 })
-const administrationGroupUpdate = (id,group) => ({
-    type:types.administrationUpdateGroup,
+const administrationUserUpdate = (id,user) => ({
+    type:types.administrationUpdateUser,
     payload:{
         id,
-        group:{id,...group}
+        group:{id,...user}
     }
 })
-const administrationGroupDelete = (groupId) => ({
-    type:types.administrationDeleteGroup,
-    payload:groupId
+const administrationUserDelete = (userId) => ({
+    type:types.administrationDeleteUser,
+    payload:userId
 })
 
 
-const administrationGroupsLoad = ( groups ) => ({
-    type:types.administrationLoadGroups,
-    payload:groups
-})
+
 // FIN SECCION GRUPOS
 export const stratLoadingAdministration = () => (
     {type:types.administrationStartLoading}

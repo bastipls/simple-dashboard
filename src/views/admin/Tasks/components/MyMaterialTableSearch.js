@@ -3,28 +3,24 @@ import React from 'react'
 import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { localizationMaterialTable } from '../../../../constants/localizations'
-import { objectToFormTask } from '../../../../utils/objectToFormTask';
-import { setDuplicatingTask } from '../../../../actions/tasks'
 import { pad } from '../../../../utils/pad';
 import moment from 'moment';
+import { setDuplicatingTask } from '../../../../actions/tasks';
+import { objectToFormTask } from '../../../../utils/objectToFormTask';
 
-export const MyMaterialTableSearch = ({title, data}) => {
+export const MyMaterialTableSearch = ({title,data}) => {
     const dispatch = useDispatch();
     const columns = [
         {
             title:"ID",
-            field:"id_pad",
+            field:"id",
             filtering:false,
             render:rowData => <Link onClick={() =>{
-                const task = objectToFormTask(rowData)
+                const job = objectToFormTask(rowData)
                 
-                dispatch(setDuplicatingTask(task))
+                dispatch(setDuplicatingTask(job))
             }} style={{textDecoration:"none"}} to={`/admin/buscar-tarea/duplicar/${rowData.id}`} >{pad(rowData.id,6)}</Link>,
-         
-        },
-        {
-            title:'Titulo',
-            field:'title'
+            // type:"numeric"
         },
         {
             title:'Sector',
@@ -34,8 +30,7 @@ export const MyMaterialTableSearch = ({title, data}) => {
         {
             title:"Creación",
             field:"created_at",
-            render:rowData => <p>{moment(rowData.created_at).format('YYYY-MM-DD HH:mm')}</p>,
-            filtering:false
+            render:rowData => <p>{moment(rowData.created_at).format('YYYY-MM-DD HH:mm')}</p>
         },
 
 
@@ -50,7 +45,7 @@ export const MyMaterialTableSearch = ({title, data}) => {
                 options={{
                     filtering:true
                 }}
+                
            />  
     )
 }
-

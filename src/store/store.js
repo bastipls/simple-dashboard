@@ -7,7 +7,8 @@ import { uiReducer } from "../reducers/uiReducer";
 import { chartsReducer } from "../reducers/chartsReducer";
 
 import { administrationRedcuer } from "../reducers/administrationReducer";
-import { errorsReducer } from "../reducers/errrosReducers";
+
+import { notificationReducer } from "../reducers/notificationReducer";
 
 
 
@@ -18,7 +19,7 @@ const reducers = combineReducers({
     maintainers:maintainersReducer,
     charts:chartsReducer,
     administration:administrationRedcuer,
-    errors:errorsReducer
+    notification:notificationReducer
 })
 const composeEnhancers = (typeof window !== 'undefined' && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) || compose;
 

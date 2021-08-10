@@ -4,6 +4,7 @@ import { types } from "../constants/types";
 import { useFakeFetch } from "../hooks/useFetch";
 import { finishLoading, startLoading } from "./ui";
 import tasksFakeData from "../FAKEDATA/tasksData.json"
+import { notificationAdd } from "./notifications";
 export const startCreateTask = (task,history) =>{
     return async(dispatch) =>{
         try {
@@ -48,9 +49,10 @@ export const startCreateTask = (task,history) =>{
                         // EN el metodo igual explique algo de como funciona
                         // tokeDetectCloseExpiration(dispatch)
                         setTimeout(() => {
-                            dispatch(createTask(task))
+                            dispatch(addTask(task))
                             dispatch(taskCleaning())
-                            Swal.fire('Exito!','Trabajo creado','success')
+                            Swal.fire('Exito!','Tarea creada','success')
+                            dispatch(notificationAdd("Tarea creada "))
                             dispatch(finishLoading())
                             
                         }, 2000);
@@ -75,7 +77,7 @@ export const startCreateTask = (task,history) =>{
     }
 }
 
-const createTask = (task) => ({
+const addTask = (task) => ({
     type:types.taskAdd,
     payload:task
 })

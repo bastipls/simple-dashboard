@@ -1,5 +1,5 @@
-import React, {  useState } from 'react'
-import { faBars, faExclamationTriangle, faSignOutAlt, faUserTie } from '@fortawesome/free-solid-svg-icons'
+import React, {    useState } from 'react'
+import { faBars, faSignOutAlt } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Link } from 'react-router-dom'
 
@@ -8,12 +8,15 @@ import avatarImg from '../../../assets/img/avatar.jpeg';
 import { useDispatch, useSelector } from 'react-redux';
 import {   showSidebar } from '../../../actions/ui';
 import { startLogout } from '../../../actions/auth';
-import { Badge, ListItemIcon, Menu, MenuItem } from '@material-ui/core';
+import { ListItemIcon, Menu, MenuItem } from '@material-ui/core';
+import { LogsHeader } from '../../../components/layout/LogsHeader';
 export const NavBar = ({user}) => {
     const dispatch = useDispatch();
     const { visibilitySideBar } = useSelector( state => state.ui );
+    const { notifications } = useSelector( state => state.notification );
+  
     const [anchorEl, setAnchorEl] = useState(null);
-    
+    // const refBoxLog = useRef(null)
     const avt = avatarImg;
     const handelShowSideBar = () =>{
         dispatch(showSidebar(visibilitySideBar))
@@ -28,13 +31,9 @@ export const NavBar = ({user}) => {
         dispatch(startLogout())
     }
 
-    const [bag, setBag] = useState(null)
-    const handleBagError = (e) =>{
-        setAnchorEl(e.currentTarget);
-    }
-    const handleCloseBagError = () =>{
-        setBag(null)
-    }
+    
+   
+
     return (
         // Navbar
         <div className="navbar">
@@ -59,32 +58,8 @@ export const NavBar = ({user}) => {
             </ul>
             <ul className="navbar__nav">
             {/* TODO:Terminar de hacer esto */}
-                <span  onClick={handleBagError}> 
-                                <Menu
-                                    
-                                    anchorEl={null}
-                                    keepMounted
-                                    open={Boolean(bag)}
-                                    onClose={handleCloseBagError}
-                                    getContentAnchorEl={null}
-                                    
-                                    anchorOrigin={{
-                                        vertical: 'right',
-                                        horizontal: 'left',
-                                    }}
-                                    
-                                    transformOrigin={{
-                                    vertical: 'right',
-                                    horizontal: 'right',
-                                    }}
-                                >
-                                    <MenuItem>hola</MenuItem>
-                                    <MenuItem>hola</MenuItem>
-                                </Menu>
-                                <Badge  badgeContent={4} color="primary">
-                                    <FontAwesomeIcon icon={faExclamationTriangle} />
-                                </Badge>
-                    </span>
+                           
+               <LogsHeader  data={notifications} />
             </ul>
                      
 
@@ -122,16 +97,7 @@ export const NavBar = ({user}) => {
                         
                         >
 
-                        <MenuItem 
-                            component={Link}
-                            to="/admin/perfil"
-                            
-                        >
-                        <ListItemIcon>
-                            <FontAwesomeIcon  icon={faUserTie}/>
-                        </ListItemIcon>
-                        Perfil
-                        </MenuItem>
+    
                  
                          <MenuItem onClick={handleLogout} >
                         <ListItemIcon>

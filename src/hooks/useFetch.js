@@ -59,6 +59,31 @@ const useFetch = (path,data,method='GET',wihToken=false)=>{
 
 
 }
+export const useFetchAny = (url,data,method='GET')=>{
+    
+
+    if(method === 'GET')
+    {
+    
+        return fetch(url,
+            {
+            method,
+            }
+            );
+        
+    }else{
+        return fetch(url,
+            {
+                method,
+                headers:{
+                    'Content-Type':'application/json',  
+                },
+                body:JSON.stringify(data)
+            })
+        
+    }
+
+}
 export const useFakeFetch = (path) => {
    const data = JSON.parse(JSON.stringify(path));
    return {ok:true,body:data};

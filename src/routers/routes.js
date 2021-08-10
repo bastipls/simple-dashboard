@@ -1,12 +1,9 @@
 
-import {  faChartPie,  faEdit, faPen, faSearch, faToolbox, faUserCog, faUsers, faUsersCog, faUserShield } from '@fortawesome/free-solid-svg-icons';
+import {  faChartPie,  faEdit, faPen, faSearch, faToolbox, faUserCog, faUsersCog } from '@fortawesome/free-solid-svg-icons';
 import { DetailUser } from '../views/admin/Administration/components/DetailUser';
-import { GroupsView } from '../views/admin/Administration/GroupsView';
 import { UsersView } from '../views/admin/Administration/UsersView';
-
 import { DashBoardView } from '../views/admin/Dashboard/DashBoardView';
 import { TabsMaintainersView } from '../views/admin/Maintainers/TabsMaintainersView';
-import { ProfileView } from '../views/admin/Profile/ProfileView';
 import { DuplicateTaskView } from '../views/admin/Tasks/DuplicateTaskView';
 import { SearchTaskView } from '../views/admin/Tasks/SearchTaskView';
 import { TaskFormView } from '../views/admin/Tasks/TaskFormView';
@@ -14,18 +11,7 @@ import { TaskFormView } from '../views/admin/Tasks/TaskFormView';
 
 
 const adminRoutes = [ 
-    {
-        layout:'/admin',
-        path:'/perfil',
-        name:"Perfil",
-        icon:faUsers,
-        groups:['admin'],
-        component:ProfileView,
-        permissions:['view_jobbenefit'],
-        isMenuItem:false,
-        isSubMenu:false,
-        
-    },
+
     {
         layout:'/admin',
         path:'/dashboard',
@@ -93,15 +79,6 @@ const adminRoutes = [
                 name:"Usuarios",
                 icon:faUserCog,
                 component:UsersView,
-                groups:['admin'],
-                permissions:['view_jobbenefit']
-            },
-            {
-                layout:'/admin',
-                path:'/grupos',
-                name:"Grupos",
-                icon:faUserShield,
-                component:GroupsView,
                 groups:['admin'],
                 permissions:['view_jobbenefit']
             }

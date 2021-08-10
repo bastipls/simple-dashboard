@@ -1,40 +1,32 @@
 
-import { CircularProgress } from '@material-ui/core';
-import React, { useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux';
-import {  startLoadGroups, startLoadUserActive } from '../../../../actions/administration';
-import { MyMaterialTableSearch } from '../../RyS/components/MyMaterialTableSearch';
-import { FormUser } from './FormUser';
+// import React, { useEffect } from 'react'
+// import { useDispatch } from 'react-redux';
+// // import {  startLoadGroups, startLoadUserActive } from '../../../../actions/administration';
 
-export const DetailUser = ({match}) => {
-    const dispatch = useDispatch();
-    const {groups,users,loading } = useSelector( state => state.administration );
-    const {
-        params: { id },
-      } = match;
-      useEffect(() => {
-        dispatch(startLoadUserActive(id))
+
+
+// export const DetailUser = ({match}) => {
+//     const dispatch = useDispatch();
+
+//     const {
+//         params: { id },
+//       } = match;
+//       useEffect(() => {
+//         dispatch(startLoadUserActive(id))
           
-      }, [dispatch,id])
-      useEffect(() => {
-        dispatch(startLoadGroups())
+//       }, [dispatch,id])
+//       useEffect(() => {
+//         dispatch(startLoadGroups())
           
-      }, [dispatch])
+//       }, [dispatch])
     
     
     
       
-    return (
-      <>
-    { !loading && users.active ? 
-    <>
-    <FormUser userActive={users.active} groups={groups} /> 
-    <MyMaterialTableSearch title={`Requerimientos creados ${users.active.first_name}`} jobs={users.active.jobs} /> 
-    </>
-    : <CircularProgress />
- 
-     }
-    </>
+//     return (
+//       <>
 
-    )
-}
+//     </>
+
+//     )
+// }

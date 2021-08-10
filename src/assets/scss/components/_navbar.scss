@@ -98,7 +98,111 @@
         border-radius: 50%;
     }
 }
+.navbar__logs-container{
+    position: relative;
+    margin-left: 20px;
+    
+    #navbar__logs-icon{
+        cursor: pointer;
+        -webkit-user-select: none; /* Safari */        
+        -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* IE10+/Edge */
+        user-select: none; /* Standard */
+    }
+    // TODO: SEGUIR CON esto me falta hacer el contenido de esto y hacer
+    // que los logs de puedan eliminar del estado 
+    .navbar__logs-box.navbar__show-box-logs{
+        visibility: visible;
+        opacity: 1;
+    }
+    .navbar__logs-box{
+        display: flex;
+        flex-direction: column;
+        visibility: hidden;
+        overflow: auto;
+        transition:visibility 0.3s linear,opacity 0.3s linear;
+        opacity: 0;
+        width: 300px;
+        height: 400px;
+        background-color: white;
+        position: absolute;
+        top:22px;
+        left: 40px;
+        border-radius: 8px;
+        box-shadow: 0px 1px 5px -2px rgba(0,0,0,0.75);
+        -webkit-box-shadow: 0px 1px 5px -2px rgba(0,0,0,0.75);
+        -moz-box-shadow: 0px 1px 5px -2px rgba(0,0,0,0.75);
+        #navbar__logs-box-title{
+            color: rgba(0, 0, 0, 0.726);
+            margin: 2px 0px 0px 10px;
 
+        }
+        .navbar__container-messages{
+            flex: 1;
+            // background-color: red;
+            padding: 0px 10px 10px 10px;
+            .navbar__message-empty{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+                height: 100%;
+                // background-color: red;
+                h4{
+                    opacity: 0.6;
+                    color:var(--second-color)
+                }
+            }
+            .navbar__message-box-logs{
+                transition: all .5s;
+                width: 100%;
+                color: black;
+                background-color: #cce5ff;
+                text-align: start;
+                margin-top: 10px;
+                padding: 30px;
+                position: relative;
+                border-radius: 4px;
+                border: 1px solid transparent;    border: 1px solid transparent;
+                .navbar__created-log{
+                    position: absolute;
+                    top:5px;
+                    font-size: 13px;
+                    left: 10px;
+                }
+                .navbar__delete-message-log{
+                    position: absolute;
+                    top: 3px;
+                    right: 15px;
+                    cursor: pointer;
+                    text-shadow: 0 1px 0 #fff;
+                    opacity: .5;
+                    font-size: 20px;
+                    transition: all .5s;
+                    &:hover{
+                        
+                        color: #000;
+                        opacity: 1;
+                    }
+                }
+    
+               
+            }
+        }
+        @media screen and (max-width:430px) {
+            width: 300px;
+            height: 400px;
+            top:30px;
+            left: 0px;
+        }
+        @media screen and (max-width:380px) {
+            width: 300px;
+            height: 400px;
+            top:30px;
+            left: -10px;
+        }
+    }
+}
 
 
 @media only screen and (max-width: 600px) {

@@ -2,42 +2,46 @@ import { types } from "../constants/types";
 
 
 const initialState = {
-    groups:[],
     users:{
         active:null,
-        usersList:[]
+        usersList:[],
+        totalUsers:0
     },
     loading:false,
 }
 
 export const administrationRedcuer = ( state= initialState, action) =>{
     switch (action.type) {
-        case types.administrationAddGroup:
+        case types.administrationAddUser:
             return {
                 ...state,
-                groups:[...state.groups,action.payload]
+                users:
+                {
+                    usersList:[...state.users.usersList,action.payload],
+                    totalUsers:state.users.totalUsers+1
+                }
+                
             }
-        case types.administrationLoadGroups:
+        case types.administrationUpdateUser:
             return {
                 ...state,
-                groups:[ ...action.payload ]
+                users:{
+                    usersList:state.users.usersList.map(user => 
+                        user.id === action.payload.id ?
+                        action.payload
+                        : user
+                    )
+                }
             }
-        case types.administrationUpdateGroup:
+        case types.administrationDeleteUser:
             return {
                 ...state,
-                groups:state.groups.map(group => 
-                    group.id === action.payload.id ?
-                    action.payload.group
-                    : group
-                )
-            }
-        case types.administrationDeleteGroup:
-            return {
-                ...state,
-                groups:state.groups.filter(
-                    group => (group.id !== action.payload)
-                )
-            }
+                users:{
+                    usersList:state.users.usersList.filter(
+                        user => (user.id !== action.payload)
+                    )
+                }
+                }
         case types.administrationSetUserActive:
             return {
                 ...state,
@@ -52,15 +56,9 @@ export const administrationRedcuer = ( state= initialState, action) =>{
                 ...state,
                 users:{
                     active:null,
-                    usersList:[...action.payload]
+                    usersList:[...action.payload.data],
+                    totalUsers:action.payload.total
                 } 
-            }
-        case types.administrationUpdateUserGroup:
-            return {
-                ...state,
-                users:{
-                    active:action.payload.user
-                }
             }
 
         case types.administrationStartLoading:

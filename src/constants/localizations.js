@@ -25,7 +25,7 @@ export const localizationMaterialTable = {
     ,
     pagination:{
         labelRowsSelect:'Filas',
-        labelDisplayedRows: '{count} de {from}-{to}',
+        labelDisplayedRows: '{from}-{to} de {count} ',
         firstTooltip: 'Primera página',
         previousTooltip: 'Página anterior',
         nextTooltip: 'Próxima página',

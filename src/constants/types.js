@@ -7,30 +7,17 @@ export const types = {
     authUserUpdate:'[Auth] User Update',
     
     administrationLoadUsers: '[Administration] Load Users',
-    administrationUpdateUserGroup: '[Administration] Update Group User',
-    administrationAddGroup:'[Administration] Add Group ',
-    administrationLoadGroups:'[Administration] Load Groups',
-    administrationUpdateGroup:'[Administration] Update Group',
-    administrationDeleteGroup: '[Administration] Delete Group',
+    administrationAddUser:'[Administration] Add Group ',
+    administrationUpdateUser:'[Administration] Update Group',
+    administrationDeleteUser: '[Administration] Delete Group',
     administrationStartLoading: '[Administration] Start loading',
     administrationFinishLoading:'[Administration] Finish Loading',
     administrationSetUserActive: '[Administration] Set user Active',
-
-    hubspotLoadDeals    :'[Hubspot] Deals Load',
-    hubspotDealAdd      :'[Hubspot] Deal Addd',
-    hubspotUpdateDeal   :'[Hubspot] Update deal',
-    hubspotDealDelete   :'[Hubspot] Delete deal',
-    hubspotStartLoading :'[Hubspot] Start loading',
-    hubspotFinishLoading:'[Hubspot] Finish loading',
 
     chartsLoad           :'[Charts] Sart load data charts',
     chartsStartLoading   :'[Charts] Start Loading',
     chartsFinishLoading  :'[Charts] Finish Loading',
 
-    catsStartLoading     :'[Cats] Start loading cats',
-    catsFinishLoading   :'[Cats] Finish loading',
-     
-    catsLoadUsers       :'[Cats] Load Users Cats',
 
     taskAdd             :'[Tasks] New Task',
     tasksLoad            :'[Tasks] Load Task',
@@ -47,15 +34,8 @@ export const types = {
     
     maintainersStartLoading:'[Maintainers] Start loading maintainers',
     maintainersFinishLoading:'[Maintainers] Finish loading maintainers',
-    careerAdd           :'[Maintianers] Add Career',
-    careerLoad          :'[Maintainers] Load Careers',
-    careerUpdate        :'[Maintainers] Update Career',
-    careerDelete        :'[Maintainers] Delete Career',
 
-    industryExperienceAdd      :'[Maintainers] Add industry experience',
-    industryExperienceLoad     :'[Maintainers] Load Indsutry experience',
-    industryExperienceUpdate   :'[Maintainers] Update Indsutry experience',
-    industryExperienceDelete   :'[Maintainers] Delete Industry experience ',  
+
     
     categoryAdd              :'[Maintainers] Add Category',
     categoryLoad             :'[Maintainers] Load Category',
@@ -67,8 +47,8 @@ export const types = {
     sectorUpdate          :'[Maintainers] Update Sector',
     sectorDelete          :'[Maintainers] Delete Sector',
     
-    errorAdd                :'[Error] Add error',
-    errorDelete             :'[Error] Delete error',
+    notificationAdd                :'[Notifications] Add notification',
+    notificationDelete             :'[Notifications] Delete notification',
 
 
 
